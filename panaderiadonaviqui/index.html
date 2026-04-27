@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Panadería Doña Viqui | Menú Virtual</title>
+    <meta name="description" content="Disfruta del pan más fresco y delicioso en Panadería Doña Viqui. Pide online nuestros panes artesanales, pasteles, empanadas y repostería. Calidad garantizada.">
+    <meta name="keywords" content="Panadería Doña Viqui, pan artesanal, pastelería, empanadas, repostería, delivery pan, menú virtual">
+    <meta name="author" content="Panadería Doña Viqui">
+    <link rel="canonical" href="https://panaderiadonaviqui.github.io/"> 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://panaderiadonaviqui.github.io/">
+    <meta property="og:title" content="Panadería Doña Viqui | Menú Virtual">
+    <meta property="og:description" content="¡Haz tu pedido de pan fresquito ahora! El aroma que te encanta, a un solo clic de distancia.">
+    <meta property="og:image" content="https://panaderiadonaviqui.github.io/images/banner.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://panaderiadonaviqui.github.io">
+    <meta property="twitter:title" content="Panadería Doña Viqui | Menú Virtual">
+    <meta property="twitter:description" content="Pide tus panes, pasteles y más desde nuestro menú interactivo.">
+    <meta property="twitter:image" content="https://panaderiadonaviqui.com/images/banner.png">
+
+    <link rel="icon" type="image/png" href="../panaderiadonaviqui/icon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../panaderiadonaviqui/icon/favicon.svg" />
+    <link rel="shortcut icon" href="../panaderiadonaviqui/icon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../panaderiadonaviqui/icon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Doña Viqui" />
+    <link rel="manifest" href="../panaderiadonaviqui/icon/site.webmanifest" />
+
+    <meta name="theme-color" content="#d2691e"> <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Panadería Doña Viqui",
+      "image": "https://www.panaderiadonaviqui.com/images/image.png",
+      "@id": "https://panaderiadonaviqui.github.io",
+      "url": "https://panaderiadonaviqui.github.io",
+      "telephone": "+591XXXXXXXXX", 
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dirección de la panadería",
+        "addressLocality": "Ciudad",
+        "addressCountry": "BO"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "06:30",
+        "closes": "21:00"
+      },
+      "menu": "https://panaderiadonaviqui.github.io",
+      "servesCuisine": ["Panadería", "Pastelería", "Repostería"],
+      "priceRange": "Bs. 1 - Bs. 150"
+    }
+    </script>
+</head>
+
+<body>
+
+    <div class="header-container">
+        <div class="banner-img" style="background-image: url('img/banner.webp');">
+        </div>
+        <div class="store-profile">
+            <div class="logo-wrapper">
+                <img src="img/logo.png" alt="Panadería Doña Viqui">
+            </div>
+            <div class="store-details">
+                <h1>Panadería Doña Viqui</h1>
+                <div class="meta-info">
+                    <span id="store-status" class="status-open">Verificando...</span>
+                    <span class="delivery-time">
+                        <i class="far fa-clock"></i> 08:00 am - 18:00 pm
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="category-tabs">
+        <div class="tabs-scroll">
+            <button class="tab active">Bizcochos</button>
+            <button class="tab">Empanadas</button>
+            <button class="tab">Galletas</button>
+            <button class="tab">Especial</button>
+        </div>
+    </nav>
+
+    <main class="menu-section">
+        <h2 class="category-title">Panes Recién Horneados</h2>
+        <div id="product-list"></div>
+    </main>
+
+    <div class="footer-cart" id="footer-cart" onclick="openOrderSummary()" style="display: none; cursor: pointer;">
+        <div class="cart-content">
+            <div class="cart-left">
+                <div class="cart-badge">
+                    <i class="fas fa-bread-slice"></i>
+                    <span id="cart-qty">0</span>
+                </div>
+                <div class="cart-text">
+                    <span class="view-order">Ver mi pedido</span>
+                    <span class="total-price">Bs. <span id="cart-total">0</span></span>
+                </div>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Resumen de tu Compra</h2>
+            <div class="order-table-container">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Cant.</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-list"></tbody>
+                </table>
+            </div>
+            <div class="totals-section">
+                <div class="total-row">
+                    <span>Subtotal Bs.</span>
+                    <span id="subtotal-val">0</span>
+                </div>
+                <div class="total-row main-total">
+                    <span>Total Bs.</span>
+                    <span id="final-total-val">0</span>
+                </div>
+            </div>
+            <button class="confirm-btn" onclick="irAFormulario()">CONTINUAR PEDIDO</button>
+        </div>
+    </div>
+
+    <div id="data-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Datos de Entrega</h2>
+                <span class="close" onclick="closeDataModal()">&times;</span>
+            </div>
+
+            <div class="form-group">
+                <label>¿Cómo prefieres recibirlo?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="entrega" value="Delivery" checked onchange="toggleDelivery(true)">
+                        A domicilio
+                    </label>
+                    <label>
+                        <input type="radio" name="entrega" value="Recojo" onchange="toggleDelivery(false)"> 
+                        Recoger en local
+                    </label>
+                </div>
+            </div>
+
+            <div id="delivery-section">
+                <div class="form-group">
+                    <label>Dirección de entrega</label>
+                    <button class="confirm-btn"" onclick="getLocation()">Pinchar mi ubicación GPS</button>
+                    <input type="text" id="direccion" placeholder="Zona, calle, color de casa...">
+                </div>
+                <div id="map" style="height: 180px; background: #eee; margin-bottom: 15px; border-radius: 8px;">
+                    <p style="text-align:center; padding-top: 70px; color: #666;">Cargando mapa...</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Datos del Cliente</label>
+                <input type="text" id="nombre-cliente" placeholder="Tu nombre">
+                <input type="tel" id="telefono-cliente" placeholder="Tu número de WhatsApp">
+            </div>
+
+            <div class="form-group">
+                <label>Forma de Pago</label>
+                <select id="metodo-pago">
+                    <option value="Efectivo">Efectivo al recibir</option>
+                    <option value="QR">Pago por QR</option>
+                    <option value="Transferencia">Transferencia Bancaria</option>
+                </select>
+            </div>
+
+            <button class="confirm-btn" onclick="confirmarPedido()">ENVIAR PEDIDO</button>
+            <button class="confirm-btn"" onclick="closeDataModal()">VOLVER AL CARRITO</button>
+        </div>
+    </div>
+
+    <script src="asset/js/script.js"></script>
+</body>
+
+</html>
