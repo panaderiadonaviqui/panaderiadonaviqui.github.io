@@ -1,0 +1,180 @@
+:root {
+    --bg-app: #FFFFFF;          /* Fondo principal blanco */
+    --primary-red: #e63946;  
+    --primary-brand: #c0392b; 
+    --text-primary: #1a1a1a;    /* Texto casi negro para lectura clara */
+    --text-secondary: #457b9d;
+    --bg-white: #FFFFFF;
+    --whatsapp-green: #25d366;
+    --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa; /* Gris muy claro para resaltar el "teléfono" */
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.phone-container {
+    width: 100%;
+    max-width: 400px;
+    min-height: 90vh;
+    height: auto;
+    background-color: #FFFFFF; /* Marco del teléfono blanco */
+    border-radius: 40px;
+    padding: 12px; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    border: 1px solid #e0e0e0; /* Definición de borde ligera */
+}
+
+.app-screen {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-app);
+    border-radius: 30px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.banner-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: var(--primary-red);
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-header {
+    text-align: center;
+    padding: 0 20px;
+    margin-top: -80px;
+    margin-bottom: 0px;
+    z-index: 10;
+}
+
+.avatar-container {
+    width: 140px; 
+    height: 110px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 5px solid var(--bg-app); /* Borde que separa del banner */
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--primary-brand);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.bio-text {
+    font-size: 14px;
+    color: #555555; /* Gris oscuro suave */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.links-list {
+    padding: 20px 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+    margin: 10px 15px 20px 15px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.02); /* Fondo grisáceo muy leve */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    background-color: #FFFFFF; /* Botones blancos */
+    color: var(--primary-brand);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.link-btn:hover {
+    background-color: var(--primary-brand);
+    color: #FFFFFF; 
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(192, 57, 43, 0.2);
+    border-color: var(--primary-brand);
+}
+
+.link-icon {
+    font-size: 18px;
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+}
+
+.footer-section {
+    text-align: center;
+    margin-top: auto;
+    color: #888888; /* Footer en gris */
+    font-size: 11px;
+    padding: 8px;
+}
+
+.built-with {
+    font-weight: 900;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-brand);
+}
+
+@media (max-width: 450px) {
+    body { padding: 0; }
+    .phone-container {
+        height: 100vh;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+    .app-screen { border-radius: 0; }
+}
