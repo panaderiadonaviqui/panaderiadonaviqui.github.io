@@ -1,0 +1,566 @@
+/* ========================================
+   ESTILOS GENERALES Y VARIABLES (MODO CLARO)
+   ========================================
+*/
+
+:root {
+    /* Paleta de Rojos */
+    --primary-red: #e63946;              
+    --red-glow: rgba(230, 57, 70, 0.15);
+    --red-hover: #d62839;
+    --red-soft: rgba(230, 57, 70, 0.05);
+    
+    /* Paleta de Blancos y Grises (Reemplazo del Negro) */
+    --bg-app: #f8f9fa; 
+    --card-bg: #ffffff;             
+    --input-bg: #f1f3f5;
+    --border-color: #dee2e6;       
+    --text-main: #1a1a1a;    /* Casi negro para legibilidad */
+    --text-muted: #6c757d;   /* Gris para info secundaria */
+    --white: #ffffff;
+    
+    /* Sombras suavizadas para fondo blanco */
+    --shadow-light: 0 4px 12px rgba(0,0,0,0.05);
+    --shadow-strong: 0 15px 40px rgba(0,0,0,0.08);
+    
+    /* Layout */
+    --max-width: 1200px;
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+main { 
+    padding-bottom: 120px; 
+}
+
+/* ========================================
+   HEADER Y PERFIL DE TIENDA
+   ========================================
+*/
+
+.header-container {
+    background: var(--card-bg);
+    position: relative;
+    width: 100%;
+    border-bottom: 3px solid var(--primary-red);
+    box-shadow: var(--shadow-light);
+}
+
+.banner-img {
+    height: 300px;
+    background-size: cover;
+    position: relative;
+    background-color: #eee; /* Fallback */
+}
+
+.banner-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+.store-profile {
+    display: flex;
+    padding: 0 25px 25px;
+    margin-top: -50px;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-wrapper img {
+    width: 180px;
+    height: 180px;
+    border-radius: var(--radius-lg);
+    border: 4px solid var(--primary-red);
+    box-shadow: 0 8px 25px var(--red-glow);
+    object-fit: cover;
+    background: var(--white);
+}
+
+.store-details { 
+    margin-left: 20px; 
+    flex: 1;
+}
+
+.store-details h1 { 
+    font-size: clamp(1.8rem, 6vw, 2.5rem); 
+    margin: 0; 
+    font-weight: 900; 
+    color: var(--primary-red);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+
+.meta-info { 
+    margin-top: 8px; 
+    display: flex; 
+    gap: 15px; 
+    align-items: center;
+    font-size: 0.95rem; 
+    color: var(--text-muted);
+}
+
+/* ========================================
+   ESTADOS Y BADGES
+   ========================================
+*/
+
+.status-open { 
+    color: #2b8a3e; 
+    font-weight: 800;
+    background: #ebfbee;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid #d3f9d8;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.status-closed {
+    color: var(--primary-red);
+    background: #fff5f5;
+    border: 1px solid #ffe3e3;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.delivery-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* ========================================
+   NAVEGACIÓN (TABS)
+   ========================================
+*/
+
+.category-tabs {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs-scroll {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5px 10px;
+}
+
+.tabs-scroll::-webkit-scrollbar { display: none; }
+
+.tab {
+    padding: 18px 25px;
+    border: none;
+    background: none;
+    white-space: nowrap;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.tab.active { 
+    color: var(--primary-red); 
+    border-bottom: 3px solid var(--primary-red);
+}
+
+.tab:hover {
+    color: var(--primary-red);
+}
+
+/* ========================================
+   SECCIÓN DE PRODUCTOS
+   ========================================
+*/
+
+.menu-section { 
+    padding: 40px 20px; 
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.category-title { 
+    font-size: 1.8rem; 
+    font-weight: 900; 
+    color: var(--text-main);
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.category-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-red), transparent);
+    margin-left: 20px;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 25px;
+}
+
+.product-item {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.product-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-red);
+    box-shadow: var(--shadow-strong);
+}
+
+.prod-img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-item:hover .prod-img {
+    transform: scale(1.08);
+}
+
+.prod-info { 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.prod-info h3 { 
+    color: var(--text-main);
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.prod-info p { 
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.prod-price-row { 
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price { 
+    font-weight: 900; 
+    font-size: 1.4rem;
+    color: var(--primary-red);
+}
+
+.add-btn {
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px var(--red-glow);
+}
+
+.add-btn:hover {
+    background: var(--red-hover);
+    transform: scale(1.02);
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   CARRITO FLOTANTE (FOOTER)
+   ========================================
+*/
+
+.footer-cart {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 450px;
+    background: var(--primary-red);
+    border-radius: 50px;
+    padding: 14px 28px;
+    color: var(--white);
+    z-index: 1000;
+    box-shadow: 0 10px 30px var(--red-glow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-cart:hover {
+    transform: translateX(-50%) translateY(-3px);
+    background: var(--red-hover);
+}
+
+.cart-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-badge {
+    background: var(--white);
+    color: var(--primary-red);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+#cart-qty {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    border: 2px solid var(--primary-red);
+}
+
+.total-price { 
+    font-size: 1.1rem; 
+    font-weight: 900; 
+}
+
+/* ========================================
+   MODALES Y FORMULARIOS
+   ========================================
+*/
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5vh auto;
+    padding: 30px;
+    width: 95%;
+    max-width: 500px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-strong);
+}
+
+.modal-title {
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th {
+    text-align: left;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 12px;
+    border-bottom: 2px solid var(--bg-app);
+}
+
+.order-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid var(--bg-app);
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.qty-cell { font-weight: 800; color: var(--primary-red); }
+
+/* Form Elements */
+.form-group { margin-bottom: 22px; }
+
+.form-group label {
+    color: var(--text-main);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 14px;
+    background: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    background: var(--white);
+    border-color: var(--primary-red);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--red-glow);
+}
+
+/* ========================================
+   BOTONES DE ACCIÓN
+   ========================================
+*/
+
+.btn-delete {
+    background: #fff5f5; 
+    color: var(--primary-red);     
+    border: 1px solid #ffe3e3;
+    border-radius: var(--radius-sm);
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: var(--primary-red); 
+    color: white;       
+    transform: scale(1.1);
+}
+
+.confirm-btn {
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 18px;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 6px 20px var(--red-glow);
+}
+
+.confirm-btn:hover {
+    background: var(--red-hover);
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
+}
+
+/* ========================================
+   RESPONSIVE
+   ========================================
+*/
+
+@media (max-width: 600px) {
+    .store-profile { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    .store-details { margin-left: 0; margin-top: 15px; }
+    .logo-wrapper img { width: 160px; height: 160px; }
+    #product-list { grid-template-columns: 1fr; }
+    .footer-cart { width: 94%; bottom: 15px; }
+}
+
+/* ========================================
+   ESTILOS ADICIONALES (DECORATIVOS)
+   ========================================
+*/
+
+.totals-section {
+    background: var(--bg-app);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+}
+
+.main-total {
+    color: var(--primary-red);
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px dashed var(--border-color);
+}
